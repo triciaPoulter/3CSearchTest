@@ -1,0 +1,27 @@
+﻿@model SearchTest.Models.Search
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Welcome</h2>
+@using (Html.BeginForm("GetProfile", "Search", FormMethod.Post))
+{
+    <div>
+    <form action="Search.cshtml" method="get">
+        <div class="input-group">
+            <h4>Name search:</h4>
+            <input type="text" placeholder="Please enter your Username" name="profiles" input id="profiles" class="form-control input-lg" required>
+            <button class="btn btn-lg btn-default" type="submit" name="btnSubmit">Search
+            </button>
+        </div>
+    </form>
+    </div>
+}
+@{
+    if(ViewBag.SearchKey != null)
+    {        <span>Search Key: @ViewBag.SearchKey</span>
+    }
+}
+<script src="../../Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/JsonFunction.js"></script>
